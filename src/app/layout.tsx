@@ -5,19 +5,26 @@ import "./globals.css";
 
 const siteDescription =
   "Le Xuan Hung, PhD — bridge structural engineer and engineering software developer. Explore selected bridge projects, computational tools and professional experience.";
+const siteTitle = "Le Xuan Hung | Bridge Engineer & Engineering Software Developer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lehung.dev"),
-  title: { default: "Le Xuan Hung | Bridge Engineer & Engineering Software Developer", template: "%s | Le Xuan Hung" },
+  title: { default: siteTitle, template: "%s | Le Xuan Hung" },
   description: siteDescription,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Le Xuan Hung",
-    title: "Le Xuan Hung | Bridge Engineer & Engineering Software Developer",
+    title: siteTitle,
     description: siteDescription,
     url: "https://lehung.dev",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/opengraph-image"],
   },
   robots: { index: true, follow: true },
   icons: { icon: "/favicon.svg" },

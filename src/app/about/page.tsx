@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { socialMetadata } from "@/lib/social-metadata";
+
+const description = "Experience, education and technical focus of Le Xuan Hung, PhD, bridge structural engineer and engineering software developer.";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Experience, education and technical focus of Le Xuan Hung, PhD, bridge structural engineer and engineering software developer.",
+  description,
   alternates: { canonical: "/about" },
+  ...socialMetadata("About Le Xuan Hung", description, "/about"),
 };
 
 const experience = [

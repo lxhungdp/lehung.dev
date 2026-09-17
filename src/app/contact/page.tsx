@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/social-metadata";
+
+const description = "Contact Le Xuan Hung about bridge engineering, structural analysis and engineering software.";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Le Xuan Hung about bridge engineering, structural analysis and engineering software.",
+  description,
   alternates: { canonical: "/contact" },
+  ...socialMetadata("Contact Le Xuan Hung", description, "/contact"),
 };
 
 export default function ContactPage() {

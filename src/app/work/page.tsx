@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import { socialMetadata } from "@/lib/social-metadata";
+
+const description = "Selected bridge engineering projects and engineering software by Le Xuan Hung.";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Selected bridge engineering projects and engineering software by Le Xuan Hung.",
+  description,
   alternates: { canonical: "/work" },
+  ...socialMetadata("Selected Work | Le Xuan Hung", description, "/work"),
 };
 
 const groups = ["Bridge engineering", "Engineering software"] as const;

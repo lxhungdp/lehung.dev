@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TechnicalFigure } from "@/components/technical-figure";
 import { getProject, projects } from "@/data/projects";
+import { socialMetadata } from "@/lib/social-metadata";
 
 export const dynamicParams = false;
 
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: project.title,
     description: project.summary,
     alternates: { canonical: `/work/${project.slug}` },
-    openGraph: { title: project.title, description: project.summary, url: `https://lehung.dev/work/${project.slug}` },
+    ...socialMetadata(`${project.title} | Le Xuan Hung`, project.summary, `/work/${project.slug}`),
   };
 }
 
