@@ -12,6 +12,13 @@ export type Project = {
   status?: string;
   tags: string[];
   contributions: string[];
+  technicalCapabilities?: {
+    problem: string;
+    scope: string[];
+  };
+  mediaNote?: string;
+  gallery?: { src: string; alt: string; caption: string; width: number; height: number }[];
+  inPractice?: string;
   outcome?: string;
   image?: string;
   imageAlt?: string;
@@ -144,8 +151,41 @@ export const projects: Project[] = [
     path: "/pus",
     title: "PUS Pro Program",
     category: "Engineering software",
-    summary: "Prestressed Concrete Composited Opening U-type Steel Box Girder. Automates steel box-girder design from girder layout and alignment through stage-by-stage and component checks, with calculation sheets and quantity tables.",
-    overview: "",
+    summary: "A Windows application for the design and verification of Prestressed Concrete Composited Opening U-type Steel Box Girder bridges.",
+    overview:
+      "PUS Pro Program is a complete workspace for designing and checking this type of steel box-girder bridge. It connects bridge geometry, structural analysis, design-code checks, calculation sheets, and quantity take-offs in one Windows application.",
+    technicalCapabilities: {
+      problem:
+        "Bridge design teams often complete preliminary design, modelling, internal-force extraction, code checks, revisions, final calculations, and quantity take-offs in separate tools. PUS Pro brings these tasks together and includes checks for secondary bridge components. It has reduced design time by more than 90%, from about one week to a few hours.",
+      scope: [
+        "Horizontal and vertical alignment input, supporting multiple alignments for different bridge layouts.",
+        "Automatic load calculation.",
+        "Built-in solver, with the option to use external solvers.",
+        "Live design-code checks.",
+        "Main girder and secondary component checks, including splices, stiffeners, stringers, crossbeams, bracing systems, diaphragms, bearings, shear connectors, and welds.",
+        "Excel and PDF calculation sheets and quantity tables.",
+      ],
+    },
+    image: "/images/pus/1-modelling.png",
+    imageAlt: "PUS Pro bridge model and node and element modelling workspace",
+    imageWidth: 1461,
+    imageHeight: 954,
+    gallery: [
+      { src: "/images/pus/2-crossection.png", alt: "PUS Pro deck slab and barrier modelling screen with bridge cross section", caption: "Deck slab and barrier geometry", width: 1461, height: 954 },
+      { src: "/images/pus/3-bracing.png", alt: "PUS Pro bracing and stiffener layout with station table", caption: "Bracing and stiffener layout", width: 1461, height: 954 },
+      { src: "/images/pus/4-dimmension.png", alt: "PUS Pro girder dimension diagram and component table", caption: "Girder component dimensions", width: 1461, height: 954 },
+      { src: "/images/pus/5-load.png", alt: "PUS Pro load definition screen and bridge model", caption: "Load definition", width: 1462, height: 856 },
+      { src: "/images/pus/6-result.png", alt: "PUS Pro internal force diagram on the bridge model", caption: "Analysis results and force diagrams", width: 1462, height: 856 },
+      { src: "/images/pus/7-table.png", alt: "PUS Pro internal force graph and result table", caption: "Internal force graphs and tables", width: 1459, height: 845 },
+      { src: "/images/pus/8-splice.png", alt: "PUS Pro splice design drawings and input table", caption: "Splice design", width: 1466, height: 854 },
+      { src: "/images/pus/9-bracing.png", alt: "PUS Pro bracing system design layout and component table", caption: "Bracing system design", width: 1469, height: 851 },
+      { src: "/images/pus/10-stiffener.png", alt: "PUS Pro stiffener design check table", caption: "Stiffener checks", width: 1456, height: 852 },
+      { src: "/images/pus/11-quantity.png", alt: "PUS Pro steel quantity summary table", caption: "Quantity summary", width: 1455, height: 847 },
+      { src: "/images/pus/12-stresschecking.png", alt: "PUS Pro sectional stress and resistance check graphs", caption: "Sectional stress and resistance checks", width: 1457, height: 859 },
+      { src: "/images/pus/13-exportitem.png", alt: "PUS Pro calculation sheet export dialog", caption: "Calculation sheet export", width: 553, height: 755 },
+    ],
+    inPractice:
+      "Wookyung Construction has used PUS Pro Program to analyse and check many steel box-girder bridge projects in South Korea.",
     tags: [],
     contributions: [],
   },
@@ -260,17 +300,19 @@ export const projects: Project[] = [
   },
   {
     slug: "timesheets",
+    path: "/timesheets",
     title: "Timesheets",
     category: "Engineering software",
-    summary: "Project-management system for time, resources, labour costs and reporting.",
+    summary: "One workspace for timesheets, project execution, and financial control: Manage daily work records, approvals, staffing allocation, budget tracking, and project performance from a unified system built for project-driven organizations.",
     overview:
-      "A full-stack project-management system for tracking time and resource allocation, controlling labour costs and reporting project performance.",
+      "Timesheets brings daily work records, approval workflows, staffing allocation, budgets, and project performance into one workspace for project-driven organizations.",
     role: "Full-stack software development",
     status: "Live product",
-    tags: ["Project management", "Reporting", "Full-stack"],
+    tags: ["Timesheets", "Staffing allocation", "Budget tracking"],
     contributions: [
-      "Develop time-tracking and resource-allocation workflows.",
-      "Support labour-cost control and project-performance reporting.",
+      "Develop workflows for daily work records and approvals.",
+      "Connect staffing allocation with project execution and budget tracking.",
+      "Show project performance and financial information in a unified workspace.",
     ],
     image: "/images/timesheets.png",
     imageAlt: "Timesheets platform landing page describing the timesheet, project execution and financial control workspace",
@@ -291,6 +333,7 @@ const softwareProjectOrder = [
   "steel-bridge-analysis",
   "bridge-alignment",
   "moving-load",
+  "timesheets",
 ] as const;
 
 export const softwareProjects = softwareProjectOrder.map((slug) => {

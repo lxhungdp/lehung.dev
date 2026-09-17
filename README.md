@@ -29,7 +29,7 @@ npm run build
 
 ## Update the portfolio
 
-- Edit project summaries, page content, statuses, screenshots, and external links in `src/data/projects.ts`. The eight public project URLs are set by each project's `path` field and ordered in `softwareProjectOrder`. The home page displays summaries; these URLs display the full profiles.
+- Edit project summaries, page content, statuses, screenshots, and external links in `src/data/projects.ts`. The public project URLs are set by each project's `path` field and ordered in `softwareProjectOrder`. The home page displays summaries; these URLs display the full profiles.
 - Add republished LinkedIn articles to `src/data/blogs.ts` with a unique `slug`, date, summary, paragraphs and optional original post URL. The Blogs section on the home page and article pages are generated from that file.
 - Edit the About, Software Projects, Blogs, and Contacts sections in `src/app/page.tsx`. The page begins with About. Header and footer navigation scroll to those sections without adding URL fragments.
 - Replace `public/le-xuan-hung-resume.pdf` when the resume changes.
