@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
 const siteDescription =
-  "Le Xuan Hung, PhD — bridge structural engineer and engineering software developer. Explore selected bridge projects, computational tools and professional experience.";
+  "Le Xuan Hung — bridge structural engineer and engineering software developer. Explore engineering software projects, technical writing and contact details.";
 const siteTitle = "Le Xuan Hung | Bridge Engineer & Engineering Software Developer";
 
 export const metadata: Metadata = {
@@ -33,8 +41,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body>
+        <Script id="theme-init" strategy="beforeInteractive">{`try{var theme=localStorage.getItem('theme');document.documentElement.dataset.theme=theme==='light'||theme==='dark'?theme:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme='light'}`}</Script>
         <a href="#main-content" className="skip-link">Skip to content</a>
         <SiteHeader />
         <main id="main-content">{children}</main>

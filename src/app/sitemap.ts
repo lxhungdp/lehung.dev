@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
-import { projects } from "@/data/projects";
+import { softwareProjects } from "@/data/projects";
+import { blogPosts } from "@/data/blogs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://lehung.dev";
-  return ["", "/work", "/about", "/contact", ...projects.map((project) => `/work/${project.slug}`)].map((path) => ({ url: `${base}${path}`, changeFrequency: "monthly", priority: path === "" ? 1 : path === "/work" ? 0.8 : 0.6 }));
+  return ["", ...softwareProjects.map((project) => project.path!), ...blogPosts.map((post) => `/blogs/${post.slug}`)].map((path) => ({ url: `${base}${path}`, changeFrequency: "monthly", priority: path === "" ? 1 : 0.6 }));
 }

@@ -1,5 +1,16 @@
 import Link from "next/link";
+import { LandingLink } from "@/components/landing-link";
 
 export default function NotFound() {
-  return <div className="site-shell not-found"><p className="eyebrow">404 / Page not found</p><h1>This page is not available.</h1><p>The link may have moved. You can continue from the work index or return to the homepage.</p><div><Link href="/work" className="button button--primary">Browse work <span aria-hidden="true">↗</span></Link><Link href="/" className="text-link">Go home <span aria-hidden="true">↗</span></Link></div></div>;
+  return (
+    <div className="shell not-found">
+      <p className="label">404</p>
+      <h1>This page is not available.</h1>
+      <p>The link may have moved. You can continue from the work index or return to the homepage.</p>
+      <div className="link-actions">
+        <LandingLink section="software-projects" className="link">Browse projects</LandingLink>
+        <Link href="/" className="link">Go home</Link>
+      </div>
+    </div>
+  );
 }

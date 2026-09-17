@@ -1,59 +1,66 @@
-import Link from "next/link";
-import { ProjectCard } from "@/components/project-card";
-import { TechnicalFigure } from "@/components/technical-figure";
-import { featuredProjects } from "@/data/projects";
+import Image from "next/image";
+import { LandingLink, LandingScrollRestorer } from "@/components/landing-link";
+import { BlogList } from "@/components/blog-list";
+import { SoftwareProjectList } from "@/components/software-project-list";
+import { blogPosts } from "@/data/blogs";
+import { softwareProjects } from "@/data/projects";
 
 export default function HomePage() {
   return (
     <>
-      <section className="hero site-shell" aria-labelledby="home-title">
-        <div className="hero__copy">
-          <p className="eyebrow"><span className="eyebrow__line" /> Bridge structures / computation</p>
-          <h1 id="home-title">Le Xuan Hung<span className="text-accent">.</span></h1>
-          <p className="hero__role">Bridge structural engineer<br />{" "}&amp; engineering software developer</p>
-          <p className="hero__intro">
-            I design and analyse complex bridge structures, then build practical software to make engineering work clearer, faster and more reliable.
-          </p>
-          <div className="hero__actions">
-            <Link href="/work" className="button button--primary">Explore selected work <span aria-hidden="true">↗</span></Link>
-            <a href="/le-xuan-hung-resume.pdf" className="text-link" target="_blank" rel="noopener noreferrer">View resume <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <div className="hero__visual"><TechnicalFigure /></div>
-      </section>
-
-      <section className="proof-strip" aria-label="Professional profile">
-        <div className="site-shell proof-strip__inner">
-          <div><strong>10+ years</strong><span>Bridge &amp; civil infrastructure</span></div>
-          <div><strong>PhD</strong><span>Civil Engineering</span></div>
-          <div><strong>Seoul, South Korea</strong><span>Working across structures &amp; software</span></div>
-        </div>
-      </section>
-
-      <section className="section site-shell" aria-labelledby="selected-work-title">
-        <div className="section-heading">
-          <div><p className="eyebrow">01 / Selected work</p><h2 id="selected-work-title">Structures and software</h2></div>
-          <Link href="/work" className="text-link">View all projects <span aria-hidden="true">↗</span></Link>
-        </div>
-        <p className="section-intro">Engineering projects and tools built around structural behaviour, construction methods and verifiable results.</p>
-        <div className="project-grid">
-          {featuredProjects.map((project, index) => <ProjectCard project={project} index={index} key={project.slug} />)}
-        </div>
-      </section>
-
-      <section className="approach-section" aria-labelledby="approach-title">
-        <div className="site-shell approach-section__inner">
-          <div><p className="eyebrow">02 / Approach</p><h2 id="approach-title">Engineering first.<br />Tools with a purpose.</h2></div>
-          <div className="approach-section__copy">
-            <p>My work spans bridge analysis, staged construction, seismic and nonlinear behaviour, and structural verification. I use that engineering foundation to develop tools for geometry control, design checks and project delivery.</p>
-            <Link href="/about" className="text-link">More about my experience <span aria-hidden="true">↗</span></Link>
+      <LandingScrollRestorer />
+      <section id="about" className="shell section section--about" aria-labelledby="about-title">
+        <div className="about-layout">
+          <div className="about-content">
+            <h1 id="about-title" className="about-lead">I design bridge structures and build engineering software.</h1>
+            <div className="about-story">
+              <div className="section__body">
+                <p>I have been interested in physics since I was young. I like to understand how things work, especially large structures. This curiosity led me to structural engineering.</p>
+                <p>Bridges fascinated me, so I chose bridge engineering at university. A triangle with fixed side lengths cannot change shape. From this simple principle, people can connect small members to build bridges that span hundreds of metres, even kilometres. These large structures can be so safe and reliable that people cross them without thinking about the bridge, as if they were walking on the ground. To me, bridges are masterpieces of engineering.</p>
+                <p>After several years in bridge design, I pursued a PhD at Kyung Hee University&apos;s Bridge Lab. I studied the theory behind the empirical formulas and calculation methods I had used in practice. This gave me time to study these subjects in depth and learn how to research and solve technical problems independently.</p>
+                <p>In my work, I always look for ways to improve accuracy and speed in structural engineering. This led me to programming while I was at university. I used Visual Basic and Mathcad as a student, Excel VBA and AutoLISP in design work, Python and MATLAB during my PhD, then C#/.NET and AutoCAD .NET to develop tools for calculations and workflows.</p>
+                <p>Structural engineering and software development support each other. To develop engineering software, I need to understand structural principles in depth. I also need to understand programming well enough to choose a suitable software design and implement it efficiently.</p>
+                <p>I enjoy both structural engineering and software development, and I always look for ways to improve in both fields. <strong>That is how I became a structural engineer who also develops engineering software.</strong></p>
+              </div>
+              <div className="about-photos" aria-label="Photos from bridge engineering work">
+                <figure className="about-photo about-photo--site">
+                  <div className="about-photo__frame">
+                    <Image src="/images/le-xuan-hung-bridge-construction-site.jpg" alt="Le Xuan Hung at a bridge construction site beneath a red gantry" fill sizes="(max-width: 760px) 45vw, 280px" loading="eager" />
+                  </div>
+                </figure>
+                <figure className="about-photo about-photo--girders">
+                  <div className="about-photo__frame">
+                    <Image src="/images/le-xuan-hung-steel-girders.jpg" alt="Le Xuan Hung standing beneath large steel girders" fill sizes="(max-width: 760px) 45vw, 280px" />
+                  </div>
+                </figure>
+              </div>
+            </div>
+            <div className="link-actions section__actions">
+              <a href="/le-xuan-hung-resume.pdf" className="link link--button link--button-secondary" target="_blank" rel="noopener noreferrer">View resume</a>
+              <LandingLink section="software-projects" className="link link--button link--button-scroll">Explore software projects</LandingLink>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="contact-band site-shell" aria-labelledby="contact-title">
-        <div><p className="eyebrow">03 / Contact</p><h2 id="contact-title">Let&apos;s discuss bridge engineering or technical software.</h2></div>
-        <Link href="/contact" className="button button--light">Get in touch <span aria-hidden="true">↗</span></Link>
+      <section id="software-projects" className="shell section" aria-labelledby="software-title">
+        <div className="section__head">
+          <h2 id="software-title">Selected Software Projects</h2>
+        </div>
+        <SoftwareProjectList projects={softwareProjects} />
+      </section>
+
+      <section id="blogs" className="shell section" aria-labelledby="blogs-title">
+        <div className="section__head"><h2 id="blogs-title">Blogs</h2></div>
+        <BlogList posts={blogPosts} />
+      </section>
+
+      <section id="contacts" className="shell section section--contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contacts</h2>
+        <div className="link-actions">
+          <a href="mailto:lxhungdp@gmail.com" className="link">lxhungdp@gmail.com</a>
+          <a href="https://www.linkedin.com/in/lxhungdp/" className="link-out" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
       </section>
     </>
   );

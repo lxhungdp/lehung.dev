@@ -2,6 +2,7 @@ export type ProjectCategory = "Bridge engineering" | "Engineering software";
 
 export type Project = {
   slug: string;
+  path?: string;
   title: string;
   category: ProjectCategory;
   summary: string;
@@ -16,7 +17,6 @@ export type Project = {
   imageAlt?: string;
   imageWidth?: number;
   imageHeight?: number;
-  visual?: "segmental" | "cable" | "box" | "cantilever" | "alignment";
   links?: { label: string; href: string }[];
   featured?: boolean;
   related?: string[];
@@ -38,7 +38,6 @@ export const projects: Project[] = [
       "Analyse balanced-cantilever and span-by-span erection using launching gantries.",
       "Connect bridge design with digital geometry-control workflows for short-line segment casting.",
     ],
-    visual: "segmental",
     featured: true,
     related: ["castcontrol"],
   },
@@ -57,7 +56,6 @@ export const projects: Project[] = [
       "Evaluate structural response under earthquake loading.",
       "Prepare design calculations and verification documents for technical review and approval.",
     ],
-    visual: "cable",
     featured: true,
   },
   {
@@ -75,7 +73,7 @@ export const projects: Project[] = [
       "Check steel connections and temporary formwork systems.",
       "Prepare engineering calculations, drawings and verification documentation.",
     ],
-    visual: "box",
+    featured: true,
   },
   {
     slug: "an-nghia-bridge",
@@ -91,32 +89,37 @@ export const projects: Project[] = [
       "Perform detailed bridge design work.",
       "Analyse the structure through balanced-cantilever construction stages.",
     ],
-    visual: "cantilever",
+    featured: true,
   },
   {
     slug: "castcontrol",
-    title: "CastControl",
+    path: "/castcontrol",
+    title: "Cast Control",
     category: "Engineering software",
-    summary: "Digital geometry control for casting and erecting short-line precast segmental bridges.",
+    summary: "Digital platform for managing and automating geometry control in short-line segmental bridge construction.",
     overview:
-      "CastControl supports alignment and tolerance verification during casting, match-casting and staged assembly. It connects bridge geometry with a reviewable construction workflow.",
+      "CastControl calculates multi-span and segment coordinates for complex alignments. Its workflow connects field requests and survey data with design review, corrections, approval and coordinate distribution during short-line segmental construction.",
     role: "Engineering workflow and software development",
     status: "Live product",
     tags: ["Bridge geometry", "Construction control", "Web application"],
     contributions: [
       "Translate short-line segmental construction procedures into digital geometry-control workflows.",
-      "Automate alignment and tolerance verification across casting and erection stages.",
-      "Develop the application and its engineering checks around reviewed project geometry.",
+      "Calculate span and segment coordinates from complex bridge alignments.",
+      "Connect field data, engineering review and approved coordinate distribution in one workflow.",
     ],
+    image: "/images/castcontrol.png",
+    imageAlt: "CastControl product page describing the digital geometry-control platform for segmental bridge construction",
+    imageWidth: 1440,
+    imageHeight: 900,
     outcome: "The documented workflow reduced manual engineering effort by up to 95%.",
-    visual: "alignment",
     links: [{ label: "Open CastControl", href: "https://castcontrol.vercel.app/" }],
     featured: true,
     related: ["south-commuter-railway"],
   },
   {
     slug: "rc-designer",
-    title: "RC Designer",
+    path: "/RCdesigner",
+    title: "Reinforced Concrete Section Designer",
     category: "Engineering software",
     summary: "Browser-based reinforced-concrete section resistance and P–Mx–My interaction analysis.",
     overview:
@@ -131,32 +134,27 @@ export const projects: Project[] = [
     ],
     image: "/images/rc-designer-results.png",
     imageAlt: "RC Designer resistance workspace with a 3D P–Mx–My surface and section charts",
-    imageWidth: 3006,
-    imageHeight: 1846,
+    imageWidth: 1440,
+    imageHeight: 884,
     links: [{ label: "Open RC Designer", href: "https://pmdesigner.vercel.app/" }],
     featured: true,
   },
   {
     slug: "pus-pro",
-    title: "PUS Pro",
+    path: "/pus",
+    title: "PUS Pro Program",
     category: "Engineering software",
-    summary: "Desktop application for prestressed composite U-type steel box-girder design and verification.",
-    overview:
-      "PUS Pro is a .NET desktop application developed to support structural design and verification of prestressed composite U-type steel box-girder bridges.",
-    role: "Bridge engineering and .NET software development",
-    status: "Desktop application",
-    tags: ["Prestressed composite bridge", ".NET", "Design automation"],
-    contributions: [
-      "Automate code checking and design calculations for the implemented bridge system.",
-      "Generate calculation sheets, quantity take-offs and technical reports.",
-    ],
-    links: [{ label: "Read project overview", href: "https://blog.naver.com/lxhkhu/223514032727" }],
+    summary: "Prestressed Concrete Composited Opening U-type Steel Box Girder. Automates steel box-girder design from girder layout and alignment through stage-by-stage and component checks, with calculation sheets and quantity tables.",
+    overview: "",
+    tags: [],
+    contributions: [],
   },
   {
     slug: "truss-designer",
-    title: "Truss Designer",
+    path: "/truss",
+    title: "Truss Design",
     category: "Engineering software",
-    summary: "Web-based truss analysis and code-based member verification.",
+    summary: "Web-based truss and scaffolding analysis with live code-based member verification.",
     overview:
       "A structural tool for analysing truss member forces and checking members against the applicable design rules used by the project.",
     role: "Engineering method and web development",
@@ -166,13 +164,18 @@ export const projects: Project[] = [
       "Model truss geometry and loading in a browser-based workspace.",
       "Automate member-force analysis and code-based verification.",
     ],
+    image: "/images/truss-designer.png",
+    imageAlt: "Truss Designer workspace showing the material property panel and the 3D modelling viewport",
+    imageWidth: 1440,
+    imageHeight: 900,
     links: [{ label: "Open Truss Designer", href: "https://struct-tools.vercel.app/truss/" }],
   },
   {
     slug: "bridge-alignment",
+    path: "/alignment",
     title: "Bridge Alignment",
     category: "Engineering software",
-    summary: "Horizontal and vertical alignment modelling for bridge geometry and field coordination.",
+    summary: "Horizontal and vertical alignment modelling for bridge geometry and field coordination under multiple design standards.",
     overview:
       "A web-based alignment modelling application supporting bridge geometry control, construction coordination and field surveys.",
     role: "Engineering workflow and web development",
@@ -182,14 +185,19 @@ export const projects: Project[] = [
       "Build tools for horizontal and vertical alignment modelling.",
       "Connect alignment information with construction and survey workflows.",
     ],
-    visual: "alignment",
+    image: "/images/bridge-alignment.png",
+    imageAlt: "Bridge Alignment workspace showing horizontal and vertical alignment plots with clothoid transitions and station tables",
+    imageWidth: 1440,
+    imageHeight: 900,
+    featured: true,
     links: [{ label: "Open Bridge Alignment", href: "https://struct-tools.vercel.app/alignment/" }],
   },
   {
     slug: "steel-bridge-analysis",
-    title: "Steel Bridge Analysis",
+    path: "/steelbridge",
+    title: "Steel Bridge Designer",
     category: "Engineering software",
-    summary: "Parametric analysis workspace for I-girder and box-girder bridges.",
+    summary: "Design and analysis workspace for I-girder and box-girder bridges.",
     overview:
       "A design-oriented platform under development for modelling and analysing steel bridge systems, with a focus on I-girder and box-girder configurations.",
     role: "Structural analysis and software development",
@@ -203,6 +211,7 @@ export const projects: Project[] = [
     imageAlt: "Steel bridge analysis workspace showing a parametric bridge model and load-lane controls",
     imageWidth: 1440,
     imageHeight: 1050,
+    featured: true,
     links: [{ label: "Open current demo", href: "https://struct-tools.vercel.app/bridge/" }],
   },
   {
@@ -223,9 +232,10 @@ export const projects: Project[] = [
   },
   {
     slug: "anchor-designer",
+    path: "/anchor",
     title: "Anchor Designer",
     category: "Engineering software",
-    summary: "Anchor-to-concrete verification workspace with a base-plate analysis backend.",
+    summary: "Anchor-to-concrete verification workspace with automated FEM base-plate analysis.",
     overview:
       "A development-stage workspace for anchor-to-concrete checks and base-plate finite-element analysis. The repository describes its present status as a development baseline, not design certification.",
     role: "Engineering method and software development",
@@ -235,6 +245,18 @@ export const projects: Project[] = [
       "Structure the model, loads, analysis, verification and reporting workflow.",
       "Connect anchor checks with an OpenSees-based base-plate analysis backend.",
     ],
+    links: [{ label: "Open Anchor Designer", href: "https://anchor-designer.vercel.app/" }],
+  },
+  {
+    slug: "moving-load",
+    path: "/movingload",
+    title: "Moving Load",
+    category: "Engineering software",
+    summary: "Solver for internal forces under 3D moving truck and lane loads with eccentricity.",
+    overview: "",
+    status: "Details pending",
+    tags: [],
+    contributions: [],
   },
   {
     slug: "timesheets",
@@ -250,12 +272,37 @@ export const projects: Project[] = [
       "Develop time-tracking and resource-allocation workflows.",
       "Support labour-cost control and project-performance reporting.",
     ],
+    image: "/images/timesheets.png",
+    imageAlt: "Timesheets platform landing page describing the timesheet, project execution and financial control workspace",
+    imageWidth: 1440,
+    imageHeight: 900,
     links: [{ label: "Open Timesheets", href: "https://timesheets.co.kr/" }],
   },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
 
+const softwareProjectOrder = [
+  "pus-pro",
+  "castcontrol",
+  "rc-designer",
+  "anchor-designer",
+  "truss-designer",
+  "steel-bridge-analysis",
+  "bridge-alignment",
+  "moving-load",
+] as const;
+
+export const softwareProjects = softwareProjectOrder.map((slug) => {
+  const project = projects.find((entry) => entry.slug === slug);
+  if (!project?.path) throw new Error(`Missing public path for ${slug}`);
+  return project;
+});
+
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
+}
+
+export function getProjectByPath(path: string) {
+  return softwareProjects.find((project) => project.path === path);
 }
