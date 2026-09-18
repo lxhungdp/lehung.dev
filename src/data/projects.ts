@@ -7,9 +7,12 @@ export type Project = {
   category: ProjectCategory;
   summary: string;
   overview: string;
+  introLink?: { label: string; href: string };
+  registration?: { statement: string; label: string; href: string };
   location?: string;
   role?: string;
   status?: string;
+  hideHeroMetadata?: boolean;
   tags: string[];
   contributions: string[];
   technicalCapabilities?: {
@@ -24,6 +27,7 @@ export type Project = {
   imageAlt?: string;
   imageWidth?: number;
   imageHeight?: number;
+  video?: { youtubeId: string; title: string };
   links?: { label: string; href: string }[];
   featured?: boolean;
   related?: string[];
@@ -101,13 +105,20 @@ export const projects: Project[] = [
   {
     slug: "castcontrol",
     path: "/castcontrol",
-    title: "Cast Control",
+    title: "CastControl",
     category: "Engineering software",
     summary: "Digital platform for managing and automating geometry control in short-line segmental bridge construction.",
     overview:
-      "CastControl calculates multi-span and segment coordinates for complex alignments. Its workflow connects field requests and survey data with design review, corrections, approval and coordinate distribution during short-line segmental construction.",
+      "CastControl is a digital platform designed to manage and automate geometry control for segmental bridge construction using the short-line casting method. The platform determines multi-span and segment coordinates for complex alignments. It also connects site and design engineers in one centralized workflow: field engineers submit requests and survey data, while design engineers can review, correct, approve and distribute coordinates manually, or let the system automate the entire process.",
+    introLink: { label: "Open CastControl", href: "https://castcontrol.vercel.app/" },
+    registration: {
+      statement: "CastControl was officially registered as an industrial software application in South Korea.",
+      label: "View registration record",
+      href: "https://www.cros.or.kr/psnsys/cmmn/infoPage.do?w2xPath=/ui/twc/cmmn/convenientDtl.xml&regId=C-2025-057358",
+    },
     role: "Engineering workflow and software development",
     status: "Live product",
+    hideHeroMetadata: true,
     tags: ["Bridge geometry", "Construction control", "Web application"],
     contributions: [
       "Translate short-line segmental construction procedures into digital geometry-control workflows.",
@@ -118,8 +129,16 @@ export const projects: Project[] = [
     imageAlt: "CastControl product page describing the digital geometry-control platform for segmental bridge construction",
     imageWidth: 1440,
     imageHeight: 900,
+    video: { youtubeId: "Cvx660pE6-Q", title: "CastControl project introduction" },
+    gallery: [
+      { src: "/images/castcontrol/1-introduction.png", alt: "Diagram summarizing geometry-control software features from data preparation to mobile access", caption: "Geometry-control software capabilities", width: 1547, height: 867 },
+      { src: "/images/castcontrol/2-alignment.png", alt: "Alignment definition screen with horizontal geometry, vertical profile and station data", caption: "Horizontal and vertical alignment definition", width: 1591, height: 872 },
+      { src: "/images/castcontrol/3-castcontrol.png", alt: "Casting geometry control screen with segment coordinates and correction charts", caption: "Casting geometry control and correction review", width: 1593, height: 888 },
+      { src: "/images/castcontrol/4-survey.png", alt: "Survey results input screen showing form-setting and after-casting coordinates", caption: "Survey results and coordinate review", width: 1585, height: 883 },
+    ],
+    inPractice:
+      "CastControl is being used for geometry control across more than 1,000 bridge spans on the NSCR South project in the Philippines. The South Commuter Railway is an approximately 56 km section of the North–South Commuter Railway, connecting Solis in Metro Manila with Calamba in Laguna. The project is intended to improve public transport access, ease road congestion and reduce transport emissions.",
     outcome: "The documented workflow reduced manual engineering effort by up to 95%.",
-    links: [{ label: "Open CastControl", href: "https://castcontrol.vercel.app/" }],
     featured: true,
     related: ["south-commuter-railway"],
   },
@@ -128,22 +147,41 @@ export const projects: Project[] = [
     path: "/RCdesigner",
     title: "Reinforced Concrete Section Designer",
     category: "Engineering software",
-    summary: "Browser-based reinforced-concrete section resistance and P–Mx–My interaction analysis.",
+    summary: "Browser-based section resistance and factored demand checks for reinforced concrete under axial force and biaxial bending.",
     overview:
-      "A structural analysis workspace for reinforced-concrete cross sections under axial force and biaxial bending. The current documented product scope is section resistance and demand checks, not complete member design.",
+      "Reinforced Concrete Section Designer evaluates the axial-force and biaxial-bending resistance of short reinforced-concrete cross sections. It brings irregular concrete geometry, openings, discrete reinforcement, material response, P–Mx–My resistance surfaces and factored demand checks into one browser workspace. Its current scope is section resistance and demand checks, not complete column or member design.",
+    introLink: { label: "Open live demo", href: "https://pmdesigner.vercel.app/" },
     role: "Engineering method and software development",
     status: "Live demo",
+    hideHeroMetadata: true,
     tags: ["Reinforced concrete", "P–Mx–My", "Numerical analysis"],
+    technicalCapabilities: {
+      problem:
+        "The application takes an irregular reinforced-concrete section from a verified numerical model to auditable P–Mx–My resistance results and a factored section demand check.",
+      scope: [
+        "Build multiple polygonal concrete regions and openings, with discrete reinforcement and material assignments.",
+        "Evaluate section response using independent stress–strain integration and equivalent rectangular stress-block methods.",
+        "Inspect nominal and design P–Mx–My surfaces, directional meridians, fixed-axial-force contours and the underlying chart data.",
+        "Check factored section demands with utilization, capacity intersections, solver convergence and a compatible strain field.",
+        "Use the implemented KDS section-check routes; ACI, Eurocode and AS profiles remain calculation previews rather than released code checks.",
+        "Export browser-side projects, PDF design-preview reports, calculation workbooks and Excel or DXF mesh audit data.",
+      ],
+    },
     contributions: [
       "Build an editor for irregular concrete sections, openings and discrete reinforcement.",
       "Expose the verified numerical mesh, interaction surfaces and chart data for review.",
       "Provide section-level demand checks and exportable engineering evidence.",
     ],
-    image: "/images/rc-designer-results.png",
-    imageAlt: "RC Designer resistance workspace with a 3D P–Mx–My surface and section charts",
-    imageWidth: 1440,
-    imageHeight: 884,
-    links: [{ label: "Open RC Designer", href: "https://pmdesigner.vercel.app/" }],
+    image: "/images/rcdesigner/interaction-surface-and-slices.png",
+    imageAlt: "Three-dimensional P–Mx–My resistance surface with a directional meridian, fixed-axial-force contour and section data",
+    imageWidth: 3006,
+    imageHeight: 1846,
+    gallery: [
+      { src: "/images/rcdesigner/mesh-gauss-points.png", alt: "Verified concrete integration mesh with Gauss points and discrete reinforcement fibers", caption: "Numerical mesh and Gauss integration points", width: 3006, height: 1846 },
+      { src: "/images/rcdesigner/directional-and-fixed-p-results.png", alt: "Directional P–M resistance curve with a three-dimensional surface and fixed-axial-force Mx–My contour", caption: "Directional resistance and fixed-axial-force results", width: 3006, height: 1846 },
+      { src: "/images/rcdesigner/demand-check-section-field.png", alt: "Factored demand check with utilization, converged section strain field and resistance charts", caption: "Demand check and compatible section field", width: 3006, height: 1846 },
+    ],
+    links: [{ label: "Source code and engineering documentation", href: "https://github.com/lxhungdp/RC-concrete-section" }],
     featured: true,
   },
   {
@@ -170,6 +208,7 @@ export const projects: Project[] = [
     imageAlt: "PUS Pro bridge model and node and element modelling workspace",
     imageWidth: 1461,
     imageHeight: 954,
+    video: { youtubeId: "e2XkFhsxWxo", title: "PUS Pro Program introduction" },
     gallery: [
       { src: "/images/pus/2-crossection.png", alt: "PUS Pro deck slab and barrier modelling screen with bridge cross section", caption: "Deck slab and barrier geometry", width: 1461, height: 954 },
       { src: "/images/pus/3-bracing.png", alt: "PUS Pro bracing and stiffener layout with station table", caption: "Bracing and stiffener layout", width: 1461, height: 954 },
@@ -185,7 +224,7 @@ export const projects: Project[] = [
       { src: "/images/pus/13-exportitem.png", alt: "PUS Pro calculation sheet export dialog", caption: "Calculation sheet export", width: 553, height: 755 },
     ],
     inPractice:
-      "Wookyung Construction has used PUS Pro Program to analyse and check many steel box-girder bridge projects in South Korea.",
+      "Wookyung Construction has used PUS Pro Program to design and verify dozens of steel box-girder bridge projects in South Korea.",
     tags: [],
     contributions: [],
   },

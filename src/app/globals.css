@@ -751,6 +751,13 @@ img {
   height: auto;
 }
 
+.project-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
 .figure figcaption {
   border-top: 1px solid var(--line);
   padding: var(--sp-3) var(--sp-4);

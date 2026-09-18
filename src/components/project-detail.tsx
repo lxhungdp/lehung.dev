@@ -21,26 +21,46 @@ export function ProjectDetail({ project }: { project: Project }) {
     <article className="shell page project-page">
       <LandingLink section="software-projects" className="link">← Software Projects</LandingLink>
       <header className="project-hero">
-        {project.status && <p className="label">{project.status}</p>}
+        {!project.hideHeroMetadata && project.status && <p className="label">{project.status}</p>}
         <h1>{project.title}</h1>
         <p className="project-hero__lead">{project.summary}</p>
-        {(project.location || project.role || project.tags.length > 0) && <dl className="detail-list">
+        {!project.hideHeroMetadata && (project.location || project.role || project.tags.length > 0) && <dl className="detail-list">
           {project.location && <div><dt className="label">Location</dt><dd>{project.location}</dd></div>}
           {project.role && <div><dt className="label">Role</dt><dd>{project.role}</dd></div>}
           {project.tags.length > 0 && <div><dt className="label">Topics</dt><dd><span className="chips">{project.tags.map((tag) => <span className="chip" key={tag}>{tag}</span>)}</span></dd></div>}
         </dl>}
       </header>
 
-      {project.image && <figure className="figure"><Image src={project.image} alt="" width={project.imageWidth ?? 1500} height={project.imageHeight ?? 900} sizes="(max-width: 1088px) 100vw, 1040px" loading="eager" /><figcaption>{project.imageAlt}</figcaption></figure>}
+      {project.video ? (
+        <figure className="figure">
+          <iframe
+            className="project-video"
+            src={`https://www.youtube-nocookie.com/embed/${project.video.youtubeId}`}
+            title={project.video.title}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+          <figcaption>{project.video.title}</figcaption>
+        </figure>
+      ) : project.image && <figure className="figure"><Image src={project.image} alt="" width={project.imageWidth ?? 1500} height={project.imageHeight ?? 900} sizes="(max-width: 1088px) 100vw, 1040px" loading="eager" /><figcaption>{project.imageAlt}</figcaption></figure>}
 
       {pending ? <div className="project-pending"><span className="label">Project profile</span><p>Details will be added soon.</p></div> : <div className="project-body">
-        {project.overview && <ProjectSection id="overview-title" title="Overview"><p>{project.overview}</p></ProjectSection>}
+        {project.overview && <ProjectSection id="overview-title" title="Overview">
+          {project.introLink && <p><a href={project.introLink.href} className="link-out" target="_blank" rel="noopener noreferrer">{project.introLink.label} <span aria-hidden="true">↗</span></a></p>}
+          <p>{project.overview}</p>
+        </ProjectSection>}
+        {project.registration && <ProjectSection id="registration-title" title="Registration">
+          <p>{project.registration.statement}</p>
+          <p><a href={project.registration.href} className="link-out" target="_blank" rel="noopener noreferrer">{project.registration.label} <span aria-hidden="true">↗</span></a></p>
+        </ProjectSection>}
         {project.technicalCapabilities && <ProjectSection id="capabilities-title" title="Technical capabilities">
           <p>{project.technicalCapabilities.problem}</p>
           <h3>Technical scope</h3>
           <ul>{project.technicalCapabilities.scope.map((item) => <li key={item}>{item}</li>)}</ul>
         </ProjectSection>}
-        {project.technicalCapabilities && Boolean(project.gallery?.length || project.mediaNote) && <ProjectSection id="media-title" title="Images & videos">
+        {Boolean(project.gallery?.length || project.mediaNote) && <ProjectSection id="media-title" title={project.video ? "Images & videos" : "Images"}>
           {Boolean(project.gallery?.length) && <div className="project-gallery">{project.gallery?.map((item) =>
             <figure className="project-gallery__item" key={item.src}>
               <a href={item.src} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size image: ${item.caption}`}>
