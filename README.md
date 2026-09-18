@@ -12,25 +12,31 @@ I design and verify bridge structures, and build software for structural analysi
 - **Engineering software:** turning calculation methods and site workflows into tools with clear inputs, reviewable results, and useful exports.
 - **Computational methods:** numerical analysis and automation using Python, MATLAB, C#/.NET, AutoCAD .NET, and web technologies.
 
-## Selected engineering software
+## Engineering software
 
 | Project | What it does |
 | --- | --- |
-| [CastControl](https://lehung.dev/castcontrol) | Coordinates geometry control for short-line segmental bridge construction, linking field survey data with engineering review. |
-| [PUS Pro Program](https://lehung.dev/pus) | Brings bridge geometry, structural analysis, design checks, calculation sheets, and quantity take-offs into one Windows application for steel box-girder bridges. |
-| [Reinforced Concrete Section Designer](https://lehung.dev/RCdesigner) | Evaluates axial-force and biaxial-bending section resistance, interaction surfaces, and factored demand checks in a browser workspace. [Source code](https://github.com/lxhungdp/RC-concrete-section). |
-| [Bridge Alignment](https://lehung.dev/alignment) | Models horizontal and vertical alignments for bridge geometry and survey coordination. |
+| [PUS Pro Program](https://lehung.dev/pus) | Combines bridge geometry, structural analysis, design checks, calculation sheets and quantity take-offs for prestressed concrete composited opening U-type steel box-girder bridges. |
+| [CastControl](https://lehung.dev/castcontrol) | Coordinates short-line segmental bridge geometry, linking field survey data with engineering review and approved coordinates. |
+| [Reinforced Concrete Section Designer](https://lehung.dev/RCdesigner) | Evaluates axial-force and biaxial-bending section resistance, interaction surfaces and factored demand checks. [Source code](https://github.com/lxhungdp/RC-concrete-section). |
+| [Anchor Designer](https://lehung.dev/anchor) | Development-stage workspace for anchor-to-concrete checks and base-plate finite-element analysis; it is not a certified design tool. |
 | [Truss Design](https://lehung.dev/truss) | Analyzes truss and scaffolding member forces with code-based member checks. |
+| [Steel Bridge Designer](https://lehung.dev/steelbridge) | In-development modelling and analysis workspace for I-girder and box-girder bridges. |
+| [Bridge Alignment](https://lehung.dev/alignment) | Models horizontal and vertical alignments for bridge geometry and survey coordination. |
+| [Moving Load](https://lehung.dev/movingload) | Project for internal-force analysis under 3D moving truck and lane loads; the project profile is still being completed. |
+| [Timesheets](https://lehung.dev/timesheets) | Connects work records and approvals with project staffing, budgets and performance reporting; used internally and by construction consulting firms. |
+| [Scaffold Frame](https://lehung.dev/work/scaffold-frame) | In-development structural CAD, frame analysis and steel member checks for scaffolding systems. |
 
-More projects and their current status are on [lehung.dev](https://lehung.dev/#software-projects).
+## Bridge engineering
 
-## Selected bridge work
+| Project | Engineering work |
+| --- | --- |
+| [South Commuter Railway, Philippines](https://lehung.dev/work/south-commuter-railway) | Structural design and construction engineering for prestressed segmental railway bridges, including staged construction and geometry control. |
+| [Saemangeum Ring Road, South Korea](https://lehung.dev/work/saemangeum-ring-road) | Structural modelling, seismic evaluation and verification for a steel cable-stayed bridge. |
+| [Hyeongok 2nd Bridge, South Korea](https://lehung.dev/work/hyeongok-second-bridge) | Analysis and design verification for a steel composite box-girder bridge and temporary works. |
+| [An Nghia Bridge, Vietnam](https://lehung.dev/work/an-nghia-bridge) | Detailed design and construction-stage analysis for a balanced-cantilever bridge. |
 
-- **South Commuter Railway, Philippines:** structural design and construction engineering for prestressed segmental railway bridges, including staged construction and geometry-control workflows.
-- **Saemangeum Ring Road, South Korea:** structural modelling and seismic verification for a steel cable-stayed bridge.
-- **Hyeongok 2nd Bridge, South Korea:** analysis and design checks for a steel composite box-girder bridge and temporary works.
-
-Read more about my [engineering work](https://lehung.dev/work) and [technical writing](https://lehung.dev/blogs).
+Browse the full [project index](https://lehung.dev/work) and [technical writing](https://lehung.dev/blogs).
 
 ## Contact
 
