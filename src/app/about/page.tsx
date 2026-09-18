@@ -140,7 +140,7 @@ export default function AboutPage() {
       </section>
 
       <div className="link-actions">
-        <a href="/le-xuan-hung-resume.pdf" className="link-out" target="_blank" rel="noopener noreferrer">
+        <a href="/le-xuan-hung-resume%20%28software%29.pdf" className="link-out" target="_blank" rel="noopener noreferrer">
           Full resume <span aria-hidden="true">↗</span>
         </a>
         <Link href="/software-projects" className="link">Software Projects</Link>
