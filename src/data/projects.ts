@@ -320,6 +320,7 @@ export const projects: Project[] = [
     introLink: { label: "Open Anchor Designer", href: "https://anchor-designer.vercel.app/" },
     role: "Engineering method and software development",
     status: "In development",
+    hideHeroMetadata: true,
     tags: ["Anchor connections", "Base-plate FEM", "KDS checks"],
     technicalCapabilities: {
       problem:
