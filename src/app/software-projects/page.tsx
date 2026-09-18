@@ -3,7 +3,7 @@ import { SoftwareProjectList } from "@/components/software-project-list";
 import { softwareProjects } from "@/data/projects";
 import { socialMetadata } from "@/lib/social-metadata";
 
-const description = "Eight engineering software projects by Le Xuan Hung, from bridge geometry control to structural design tools.";
+const description = "Engineering software projects by Le Xuan Hung, from bridge geometry control to structural analysis and design workflows.";
 
 export const metadata: Metadata = {
   title: "Selected Software Projects",
