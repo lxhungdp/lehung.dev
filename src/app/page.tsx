@@ -36,7 +36,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="link-actions section__actions">
-              <a href="/le-xuan-hung-resume%20%28software%29.pdf" className="link link--button link--button-secondary" target="_blank" rel="noopener noreferrer">View resume</a>
+              <a href="/le-xuan-hung-resume%20%28software%29.pdf?v=ba6d2f4795d2" className="link link--button link--button-secondary" target="_blank" rel="noopener noreferrer">View resume</a>
               <LandingLink section="software-projects" className="link link--button link--button-scroll">Explore software projects</LandingLink>
             </div>
           </div>
