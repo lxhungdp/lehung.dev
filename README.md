@@ -35,3 +35,5 @@ Read more about my [engineering work](https://lehung.dev/work) and [technical wr
 ## Contact
 
 For bridge engineering or engineering software discussions, email **[lxhungdp@gmail.com](mailto:lxhungdp@gmail.com)** or connect on [LinkedIn](https://www.linkedin.com/in/lxhungdp/).
+
+This repository also contains the source for [lehung.dev](https://lehung.dev).
