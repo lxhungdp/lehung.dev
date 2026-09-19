@@ -5,7 +5,7 @@ import { useEffect, type MouseEvent, type ReactNode } from "react";
 
 type LandingSection = "about" | "engineering-projects" | "software-projects" | "blogs" | "contacts";
 const storageKey = "landing-scroll-target";
-const sections: LandingSection[] = ["about", "engineering-projects", "software-projects", "blogs", "contacts"];
+const sections: LandingSection[] = ["about", "software-projects", "engineering-projects", "blogs", "contacts"];
 
 export function LandingLink({ section, children, className }: { section: LandingSection; children: ReactNode; className?: string }) {
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {

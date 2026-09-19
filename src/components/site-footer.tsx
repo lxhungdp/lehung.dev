@@ -12,8 +12,8 @@ export function SiteFooter() {
           </div>
           <nav className="site-footer__links" aria-label="Footer navigation">
             <LandingLink section="about">About</LandingLink>
-            <LandingLink section="engineering-projects">Engineering Projects</LandingLink>
             <LandingLink section="software-projects">Software Projects</LandingLink>
+            <LandingLink section="engineering-projects">Engineering Projects</LandingLink>
             <LandingLink section="blogs">Blogs</LandingLink>
             <LandingLink section="contacts">Contacts</LandingLink>
           </nav>

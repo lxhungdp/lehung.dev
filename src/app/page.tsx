@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { LandingLink, LandingScrollRestorer } from "@/components/landing-link";
 import { BlogList } from "@/components/blog-list";
-import { ProjectList } from "@/components/project-list";
 import { SoftwareProjectList } from "@/components/software-project-list";
 import { blogPosts } from "@/data/blogs";
 import { bridgeEngineeringProjects, softwareProjects } from "@/data/projects";
@@ -45,20 +44,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="software-projects" className="shell section" aria-labelledby="software-title">
+        <div className="section__head">
+          <h2 id="software-title">Selected Software Projects</h2>
+        </div>
+        <SoftwareProjectList projects={softwareProjects} />
+      </section>
+
       <section id="engineering-projects" className="shell section" aria-labelledby="engineering-title">
         <div className="section__head">
           <h2 id="engineering-title">Selected Bridge Engineering Projects</h2>
           <Link href="/work" className="link">View all work</Link>
         </div>
         <p className="section__intro">Structural design, analysis and construction engineering for concrete and steel bridges.</p>
-        <ProjectList projects={bridgeEngineeringProjects} showTags />
-      </section>
-
-      <section id="software-projects" className="shell section" aria-labelledby="software-title">
-        <div className="section__head">
-          <h2 id="software-title">Selected Software Projects</h2>
-        </div>
-        <SoftwareProjectList projects={softwareProjects} />
+        <SoftwareProjectList projects={bridgeEngineeringProjects} />
       </section>
 
       <section id="blogs" className="shell section" aria-labelledby="blogs-title">
