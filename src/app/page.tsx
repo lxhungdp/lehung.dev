@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import { LandingLink, LandingScrollRestorer } from "@/components/landing-link";
 import { BlogList } from "@/components/blog-list";
+import { ProjectList } from "@/components/project-list";
 import { SoftwareProjectList } from "@/components/software-project-list";
 import { blogPosts } from "@/data/blogs";
-import { softwareProjects } from "@/data/projects";
+import { bridgeEngineeringProjects, softwareProjects } from "@/data/projects";
 
 export default function HomePage() {
   return (
@@ -36,11 +38,20 @@ export default function HomePage() {
               </div>
             </div>
             <div className="link-actions section__actions">
-              <a href="/le-xuan-hung-resume%20%28software%29.pdf?v=ba6d2f4795d2" className="link link--button link--button-secondary" target="_blank" rel="noopener noreferrer">View resume</a>
-              <LandingLink section="software-projects" className="link link--button link--button-scroll">Explore software projects</LandingLink>
+              <a href="/le-xuan-hung-resume%20%28us-2026%29.pdf?v=54e15706af05" className="link link--button link--button-secondary" target="_blank" rel="noopener noreferrer">View resume</a>
+              <LandingLink section="engineering-projects" className="link link--button link--button-scroll">Explore engineering projects</LandingLink>
             </div>
           </div>
         </div>
+      </section>
+
+      <section id="engineering-projects" className="shell section" aria-labelledby="engineering-title">
+        <div className="section__head">
+          <h2 id="engineering-title">Selected Bridge Engineering Projects</h2>
+          <Link href="/work" className="link">View all work</Link>
+        </div>
+        <p className="section__intro">Structural design, analysis and construction engineering for concrete and steel bridges.</p>
+        <ProjectList projects={bridgeEngineeringProjects} showTags />
       </section>
 
       <section id="software-projects" className="shell section" aria-labelledby="software-title">

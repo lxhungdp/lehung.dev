@@ -28,13 +28,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
+  const landingSection = project.category === "Bridge engineering" ? "engineering-projects" : "software-projects";
   const related = (project.related ?? [])
     .map((relatedSlug) => getProject(relatedSlug))
     .filter((entry) => entry !== undefined);
 
   return (
     <article className="shell page">
-      <LandingLink section="software-projects" className="link">← All projects</LandingLink>
+      <LandingLink section={landingSection} className="link">← All projects</LandingLink>
 
       <header className="project-hero">
         <p className="label">
@@ -126,7 +127,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         )}
 
         <div className="project-footer__group">
-          <LandingLink section="software-projects" className="link">All projects</LandingLink>
+          <LandingLink section={landingSection} className="link">All projects</LandingLink>
         </div>
       </div>
     </article>

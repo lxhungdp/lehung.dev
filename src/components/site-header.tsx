@@ -13,7 +13,8 @@ export function SiteHeader() {
         <div className="site-header__actions">
           <nav className="site-nav" aria-label="Main navigation">
             <LandingLink section="about">About</LandingLink>
-            <LandingLink section="software-projects">Software Projects</LandingLink>
+            <LandingLink section="engineering-projects">Engineering</LandingLink>
+            <LandingLink section="software-projects">Software</LandingLink>
             <LandingLink section="blogs">Blogs</LandingLink>
             <LandingLink section="contacts">Contacts</LandingLink>
           </nav>

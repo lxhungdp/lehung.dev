@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 const siteDescription =
-  "Le Xuan Hung — bridge structural engineer and engineering software developer. Explore engineering software projects, technical writing and contact details.";
+  "Le Xuan Hung — bridge structural engineer and engineering software developer. Explore bridge engineering projects, engineering software and technical writing.";
 const siteTitle = "Le Xuan Hung | Bridge Engineer & Engineering Software Developer";
 
 export const metadata: Metadata = {

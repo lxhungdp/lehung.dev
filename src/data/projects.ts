@@ -485,6 +485,10 @@ export const projects: Project[] = [
 
 export const featuredProjects = projects.filter((project) => project.featured);
 
+export const bridgeEngineeringProjects = projects.filter(
+  (project) => project.category === "Bridge engineering",
+);
+
 const softwareProjectOrder = [
   "pus-pro",
   "castcontrol",

@@ -4,7 +4,7 @@
 
 I design and verify bridge structures, and build software for structural analysis, bridge geometry, design checks, and construction workflows. My work connects engineering principles with practical tools that make calculations easier to inspect and repeat.
 
-[Portfolio](https://lehung.dev) · [Resume](https://lehung.dev/le-xuan-hung-resume%20%28software%29.pdf?v=ba6d2f4795d2) · [LinkedIn](https://www.linkedin.com/in/lxhungdp/) · [Email](mailto:lxhungdp@gmail.com)
+[Portfolio](https://lehung.dev) · [Resume](https://lehung.dev/le-xuan-hung-resume%20%28us-2026%29.pdf?v=54e15706af05) · [LinkedIn](https://www.linkedin.com/in/lxhungdp/) · [Email](mailto:lxhungdp@gmail.com)
 
 ## What I work on
 
